@@ -196,4 +196,4 @@ Genel amaçlı modeller yerine, sadece bu iş için özelleşmiş bir "DevMetric
 
 ### 📄 License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](LICENSE)
