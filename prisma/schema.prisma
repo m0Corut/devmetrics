@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// Basitleştirilmiş schema (Portfolio projesi için)
+model AnalyticsCache {
+  id              String   @id @default(cuid())
+  username        String   @unique
+  
+  // Cached Data (JSON as TEXT - SQLite)
+  profileData     String?  // User profile JSON
+  reposData       String?  // Repositories JSON
+  commitsData     String?  // Commits JSON
+  statsData       String?  // Stats JSON
+  aiAnalysis      String?  // AI insights JSON
+  
+  // Cache Metadata
+  cachedAt        DateTime @default(now())
+  expiresAt       DateTime
+  
+  @@index([username])
+  @@index([expiresAt])
+}
